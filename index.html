@@ -99,7 +99,7 @@
             padding: 10rem 9% 2rem;
             min-height: 100vh;
         }
-        .about,.education,.contact,.skills{
+        .about,.education,.contact{
             overflow: hidden;
         }
         .home{
@@ -512,83 +512,6 @@
         .content p{
             font-size: 1.5rem;
         }
-        /* skill-content */
-        .wrapper{
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 5rem;
-            flex-wrap: wrap;
-        }
-        .skill-title{
-            font-size: 2.4rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            transform: translateY(-100px);
-        }
-        section.start-animation .skill-title{
-            animation: top 1s ease forwards;
-            animation-delay: 1.2s;
-        }
-        .skill-content{
-            width: 100%;
-            flex:  1 1 30rem;
-        }
-        .skill-box{
-            height: 100%;
-            width: 100%;
-            padding: 8rem 4rem;
-            background: rgba(255,255,255,.1);
-            border-radius: 1rem;
-        }
-        .skill-box1{
-            opacity: 0;
-            transform: translateX(-100px);
-        }
-        section.start-animation .skill-box1{
-            animation:  Right 1s ease forwards;
-            animation-delay: 1.2s;
-        }
-        .skill-box2{
-            opacity: 0;
-            transform: translateX(100px);
-        }
-        section.start-animation .skill-box2{
-            animation:Left 1s ease forwards;
-            animation-delay: 1.4s;
-        }
-        .single-skill{
-            display: flex;
-            justify-content: space-between;
-            margin: 2rem 0;
-        }
-        .single-skill span{
-            font-size: 1.6rem;
-        }
-
-        .bar-side{
-            background: #111;
-            height: 1rem;
-            border-radius: 50rem;
-            position: relative;
-            overflow: hidden;
-        }
-        .bar{
-            position: absolute;
-            height: 100%;
-            background: #ff00ee;
-        }
-        .bar-1{
-            width: 90%;
-        }
-        .bar-2{
-            width: 80%;
-        }
-        .bar-3{
-            width: 70%;
-        }
         /* contact section */
         section form{
             max-width: 70rem;
@@ -778,8 +701,7 @@
             <a href="#home" style="--vlr:1" class="active">Home</a>
             <a href="#about" style="--vlr:2">About Me</a>
             <a href="#education" style="--vlr:3">Education</a>
-            <a href="#skills" style="--vlr:4">Skills</a>
-            <a href="#contact" style="--vlr:5">Contact Me</a>
+            <a href="#contact" style="--vlr:4">Contact Me</a>
         </nav>
     </header>
     <!-- *************************Home Section************************* -->
@@ -810,9 +732,9 @@
         <img src="MdSay.png" alt="" class="aboutImg">
         <div class="text-content2">
             <h2>Web Learner </h2>
-    <p>I’m Aayush Adhikari, a 15-year-old student from Jhapa, Nepal, currently studying in grade 10. I’m deeply fascinated by the world of technology—especially new and emerging innovations like artificial intelligence. My journey into tech began with a growing curiosity, and now I’m taking my first steps into programming, learning the fundamentals of web development through HTML, CSS, and JavaScript.
+    <p>I'm Aayush Adhikari, a 15-year-old student from Jhapa, Nepal, currently studying in grade 10. I'm deeply fascinated by the world of technology—especially new and emerging innovations like artificial intelligence. My journey into tech began with a growing curiosity, and now I'm taking my first steps into programming, learning the fundamentals of web development through HTML, CSS, and JavaScript.
 
-I enjoy discovering how things work behind the scenes and constantly seek new opportunities to explore the digital world. Whether it's building my first webpage or understanding how AI is shaping the future, I'm driven by a desire to learn and grow. When I’m not experimenting with code, I love watching sports and staying inspired by stories of innovation around the globe.
+I enjoy discovering how things work behind the scenes and constantly seek new opportunities to explore the digital world. Whether it's building my first webpage or understanding how AI is shaping the future, I'm driven by a desire to learn and grow. When I'm not experimenting with code, I love watching sports and staying inspired by stories of innovation around the globe.
 
 As I continue to develop my skills, I look forward to turning my passion into real projects and meaningful experiences online.  </p>
             <button class="btn">Read More</button>
@@ -877,64 +799,6 @@ As I continue to develop my skills, I look forward to turning my passion into re
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium tenetur enim,
             deserunt libero quisquam ab eius minus odio quod dicta!</p>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- *************************Skills Section************************* -->
-    <section class="skills" id="skills">
-        <h2 class="title">My <span>Skills</span></h2>
-        <div class="wrapper">
-            <div class="skill-content">
-                <h3 class="skill-title">Language</h3>
-                <div class="skill-box skill-box1">
-                    <div class="single-skill">
-                        <span class="topic">HTML</span>
-                        <span class="topic">90%</span>
-                    </div>
-                    <div class="bar-side">
-                        <div class="bar bar-1"></div>
-                    </div>
-                    <div class="single-skill">
-                        <span class="topic">CSS</span>
-                        <span class="topic">80%</span>
-                    </div>
-                    <div class="bar-side">
-                        <div class="bar bar-2"></div>
-                    </div>
-                    <div class="single-skill">
-                        <span class="topic">JavaScript</span>
-                        <span class="topic">70%</span>
-                    </div>
-                    <div class="bar-side">
-                        <div class="bar bar-3"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="skill-content">
-                <h3 class="skill-title">Language</h3>
-                <div class="skill-box skill-box2">
-                    <div class="single-skill">
-                        <span class="topic">HTML</span>
-                        <span class="topic">90%</span>
-                    </div>
-                    <div class="bar-side">
-                        <div class="bar bar-1"></div>
-                    </div>
-                    <div class="single-skill">
-                        <span class="topic">CSS</span>
-                        <span class="topic">80%</span>
-                    </div>
-                    <div class="bar-side">
-                        <div class="bar bar-2"></div>
-                    </div>
-                <div class="single-skill">
-                    <span class="topic">JavaScript</span>
-                    <span class="topic">70%</span>
-                </div>
-                    <div class="bar-side">
-                        <div class="bar bar-3"></div>
                     </div>
                 </div>
             </div>
