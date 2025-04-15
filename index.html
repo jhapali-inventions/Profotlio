@@ -39,10 +39,12 @@
             justify-content: space-between;
             align-items: center;
             z-index: 100;
+            background: rgba(15, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
         }
         .sticky{
             border-bottom: 2px solid rgba(255,255,255,.1);
-            background: #0f0a0a;
+            background: rgba(15, 10, 10, 0.95);
         }
         .logo{
             font-size: 2.9rem;
@@ -68,6 +70,11 @@
             color: #fff;
             font-size: 2.5rem;
             display: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #menu:hover {
+            color: #3AD6B6;
         }
         .navbar a{
             display: inline-block;
@@ -81,6 +88,21 @@
             opacity: 0;
             animation: TopSlide 1s ease forwards;
             animation-delay: calc(.2s * var(--vlr));
+            position: relative;
+        }
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #3AD6B6;
+            transition: width 0.3s ease;
+        }
+        .navbar a:hover::after,
+        .navbar a.active::after {
+            width: 100%;
         }
         @keyframes  TopSlide{
             0%{
@@ -239,6 +261,11 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(58, 214, 182, 0.3);
         }
         .btn::before{
             content: "";
@@ -259,7 +286,7 @@
         .social-media {
             margin: 2rem 0;
         }
-        .social-media i{
+        .social-media a{
             display: inline-block;
             font-size: 2.5rem;
             background: rgba(255,255,255,.1);
@@ -275,7 +302,12 @@
             animation-delay: calc(.2s * var(--vlr));
             transform: translateY(100px);
             opacity: 0;
-
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .social-media a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(58, 214, 182, 0.3);
         }
         @keyframes Bottom{
             0%{
@@ -287,7 +319,7 @@
             opacity: 1;
             }
         }
-        .social-media i::after{
+        .social-media a::after{
             content: "";
             position: absolute;
             left: 0;
@@ -301,7 +333,7 @@
             transition: .5s ease;
         }
 
-        i:hover::after{
+        a:hover::after{
             top: 0;
         }
         .home img{
@@ -313,6 +345,10 @@
             animation: Scale 1s ease forwards;
             scale: 0;
             animation-delay: 2s;
+            transition: all 0.3s ease;
+        }
+        .home img:hover {
+            transform: scale(1.05);
         }
         @keyframes Scale{
             0%{
@@ -363,6 +399,10 @@
             border-radius: 50%;
             filter: drop-shadow(0 0 8rem #3AD6B6);
             scale: 0;
+            transition: all 0.3s ease;
+        }
+        .about img:hover {
+            transform: scale(1.05);
         }
         section.start-animation .aboutImg{
             animation: scaleout 1s ease forwards;
@@ -434,21 +474,93 @@
                 opacity: 1;
             }
         }
+        /* Footer */
+        footer {
+            background: rgba(8, 7, 7, 0.9);
+            padding: 3rem 10%;
+            text-align: center;
+            border-top: 1px solid rgba(58, 214, 182, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(58, 214, 182, 0.05), transparent);
+            z-index: -1;
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .footer-text {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        .footer-social a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            font-size: 1.8rem;
+            color: #fff;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .footer-social a:hover {
+            background: #3AD6B6;
+            color: #0f0a0a;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(58, 214, 182, 0.3);
+        }
+        .back-to-top {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4.5rem;
+            height: 4.5rem;
+            background: #3AD6B6;
+            border-radius: 50%;
+            font-size: 2rem;
+            color: #0f0a0a;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 5px 20px rgba(58, 214, 182, 0.4);
+        }
         /* RESPONSIVE */
         @media(max-width:1200px){
             html{
-                font-size: 55;
+                font-size: 55%;
             }
         }
         @media(max-width:991px){
             .header{
-                padding: 2rem 9%;
+                padding: 2rem 5%;
             }
             section{
-                padding: 10rem 3% 2rem;
+                padding: 10rem 5% 2rem;
             }
             footer{
-                padding: 2rem 3%;
+                padding: 2rem 5%;
             }
         }
         @media(max-width:768px){
@@ -460,34 +572,39 @@
                 left: 0;
                 top: 100%;
                 width: 100%;
-                padding: 1rem 3%;
-                background: #0f0a0a;
+                padding: 1rem 5%;
+                background: rgba(15, 10, 10, 0.95);
                 border-top: 1px solid rgba(255,255,255,.1);
                 border-bottom: .2rem solid rgba(255,255,255,.1);
                 display: none;
+                flex-direction: column;
+                gap: 1.5rem;
             }
             .navbar.active{
-                display: block;
+                display: flex;
             }
             .navbar a{
                 display: block;
-                margin: 3rem 0;
+                margin: 0;
                 font-size: 2rem;
             }
             .home{
                 flex-direction: column-reverse;
+                text-align: center;
             }
             .home .text-content{
-                display: flex;
-                justify-content: center;
                 align-items: center;
-                flex-direction: column;
+            }
+            .btn-section {
+                width: 100%;
+                justify-content: center;
             }
             .home .text-content h1{
                 font-size: 4rem;
             }
             .home img{
                 width: 40vw;
+                margin-bottom: 3rem;
             }
             .about{
                 flex-direction: column;
@@ -501,6 +618,14 @@
             html{
                 font-size: 50%;
             }
+            .btn-section {
+                flex-direction: column;
+                height: auto;
+                gap: 1.5rem;
+            }
+            .btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -509,57 +634,57 @@
     <!-- *************************Navbar************************* -->
     <header class="header">
         <a href="#" class="logo">AAYUSH</a>
-        <i class='bx bx-menu' id="menu" style='color:#ffffff'></i>
+        <i class='bx bx-menu' id="menu"></i>
         <nav class="navbar">
             <a href="#home" style="--vlr:1" class="active">Home</a>
             <a href="#about" style="--vlr:2">About Me</a>
         </nav>
     </header>
     <!-- *************************Home Section************************* -->
-    <section class="home"  id="home">
+    <section class="home" id="home">
         <div class="text-content">
             <h1>I'm Aayush Adk</h1>
             <div class="text-animation">
                 <h2>Web learner</h2>
             </div>
-    <p>Aayush Adhikari is a curious and driven 15-year-old tech enthusiast based in Jhapa, Nepal. A grade 10 student with a passion for innovation, he is currently exploring the fundamentals of web development, learning HTML, CSS, and JavaScript.
-
- 
-
-
-</p>
+            <p>Aayush Adhikari is a curious and driven 15-year-old tech enthusiast based in Jhapa, Nepal. A grade 10 student with a passion for innovation, he is currently exploring the fundamentals of web development, learning HTML, CSS, and JavaScript.</p>
             <div class="btn-section">
-                
                 <button class="btn">Let's Talk</button>
             </div>
             <div class="social-media">
-        <i class='bx bxl-twitter' style="--vlr:7"></i>
-        <i class='bx bxl-facebook' style="--vlr:8"></i>
-        <i class='bx bxl-youtube' style="--vlr:9"></i>
+                <a href="https://youtube.com/@aayushadk?si=nyXCzfzB8nLOVx5o" style="--vlr:8" target="_blank"><i class='bx bxl-youtube'></i></a>
+                <a href="#" style="--vlr:9" target="_blank"><i class='bx bxl-facebook'></i></a>
+                <a href="#" style="--vlr:10" target="_blank"><i class='bx bxl-instagram'></i></a>
             </div>
         </div>
-        <img src="MdSay.png" alt="">
+        <img src="MdSay.png" alt="Aayush Adhikari">
     </section>
     <!-- *************************About Section************************* -->
     <section class="about" id="about">
         <h2 class="title">About <span>Me</span></h2>
-        <img src="MdSay.png" alt="" class="aboutImg">
+        <img src="MdSay.png" alt="Aayush Adhikari" class="aboutImg">
         <div class="text-content2">
-            <h2>Web Learner </h2>
-    <p>
-        I'm Aayush Adhikari, a 15-year-old student from Jhapa, Nepal, currently studying in grade 10. I'm deeply fascinated by the world of technology—especially new and emerging innovations like artificial intelligence. My journey into tech began with a growing curiosity, and now I'm taking my first steps into programming.
-
-
- </p>
+            <h2>Web Learner</h2>
+            <p>I'm Aayush Adhikari, a 15-year-old student from Jhapa, Nepal, currently studying in grade 10. I'm deeply fascinated by the world of technology—especially new and emerging innovations like artificial intelligence. My journey into tech began with a growing curiosity, and now I'm taking my first steps into programming.</p>
             <button class="btn">Read More</button>
         </div>
     </section>
 
+    <!-- *************************Footer************************* -->
     <footer>
-        <div class="text">
-            <p>Copyright @2025 by Aayush Adk</p>
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://youtube.com/@aayushadk?si=nyXCzfzB8nLOVx5o" target="_blank"><i class='bx bxl-youtube'></i></a>
+                <a href="#" target="_blank"><i class='bx bxl-facebook'></i></a>
+                <a href="#" target="_blank"><i class='bx bxl-instagram'></i></a>
+            </div>
+            <div class="footer-text">
+                <p>Copyright &copy; 2025 by Aayush Adk | All Rights Reserved</p>
+            </div>
+            <a href="#home" class="back-to-top">
+                <i class='bx bx-up-arrow-alt'></i>
+            </a>
         </div>
-       <a href="#"> <i class='bx bx-up-arrow-alt'></i></a>
     </footer>
 
     <!-- Bootstrap 5 JS Bundle with Popper -->
@@ -567,32 +692,54 @@
     <script>
         const menubar = document.querySelector('#menu');
         const Navbar = document.querySelector('.navbar');
-        menubar.onclick=()=>{
+        menubar.onclick = () => {
             menubar.classList.toggle('bx-x');
-            Navbar.classList.toggle('active')
+            Navbar.classList.toggle('active');
         }
-        const section=document.querySelectorAll('section');
-        const navlink = document.querySelectorAll('header nav a')
-        window.onscroll = ()=>{
-            section.forEach(sec=>{
+        
+        const section = document.querySelectorAll('section');
+        const navlink = document.querySelectorAll('header nav a');
+        
+        window.onscroll = () => {
+            section.forEach(sec => {
                 let top = window.scrollY;
                 let offset = sec.offsetTop - 150;
                 let height = sec.offsetHeight;
-                let id = sec.getAttribute('id')
-                if(top>offset && top < offset + height){
+                let id = sec.getAttribute('id');
+                
+                if(top > offset && top < offset + height) {
                     sec.classList.add('start-animation');
-                    navlink.forEach(links=>{
-                        links.classList.remove('active')
-                        document.querySelector('header nav a[href*='+id+']').classList.add('active')
-                      
-                    })
+                    navlink.forEach(links => {
+                        links.classList.remove('active');
+                        document.querySelector(`header nav a[href*=${id}]`).classList.add('active');
+                    });
                 }
-            })
+            });
+            
             var header = document.querySelector('.header');
-            header.classList.toggle('sticky',window.scrollY>100)
+            header.classList.toggle('sticky', window.scrollY > 100);
+            
+            // Close mobile menu when scrolling
             menubar.classList.remove('bx-x');
-            Navbar.classList.remove('active')
+            Navbar.classList.remove('active');
         }
+        
+        // Smooth scrolling for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 
