@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="icon" type="image/jpg" href="aayushlogo.png">
+    <link rel="icon" type="image/jpg" href="aayushlogo.png">
     <title>AAYUSH ADK - Beginner Software Developer</title>
     
     <!-- Bootstrap 5 CSS -->
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -49,6 +49,10 @@
             backdrop-filter: blur(10px);
             padding: 1rem 0;
             border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
 
         .navbar-container {
@@ -92,7 +96,6 @@
             color: var(--accent-color) !important;
         }
 
-        /* Mobile Menu Toggle */
         .mobile-menu-toggle {
             display: none;
             background: none;
@@ -107,7 +110,6 @@
             color: var(--accent-color);
         }
 
-        /* Mobile Menu */
         .mobile-menu {
             display: none;
             position: fixed;
@@ -140,7 +142,6 @@
             padding: 0.5rem 1rem;
         }
 
-        /* Scroll to top button */
         .scroll-to-top {
             position: fixed;
             bottom: 30px;
@@ -274,7 +275,6 @@
         .code-string { color: #10b981; }
         .code-comment { color: var(--text-muted); }
 
-        /* Section Styles */
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
@@ -299,7 +299,6 @@
             margin-bottom: 2rem;
         }
 
-        /* Experience Section */
         .experience-section {
             padding: 100px 0;
             background: var(--secondary-bg);
@@ -329,25 +328,6 @@
             margin-bottom: 1rem;
         }
 
-        .experience-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-company {
-            color: var(--accent-color);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-duration {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Skills Section */
         .skills-section {
             padding: 100px 0;
         }
@@ -372,91 +352,166 @@
             color: var(--accent-color);
         }
 
- 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 overflow-hidden">
-                        <div class="p-4">
-                            <h5 class="card-title">CloudTask Manager</h5>
-                            <p class="card-text">A full-stack task management application with real-time updates using WebSockets and React.</p>
-                            <div class="mt-3">
-                                <span class="badge bg-secondary-subtle text-white-50">Node.js</span>
-                                <span class="badge bg-secondary-subtle text-white-50">React</span>
-                            </div>
-                            <div class="mt-4">
-                                <a href="#" class="text-accent text-decoration-none me-3"><i data-lucide="github" size="18"></i> Code</a>
-                                <a href="#" class="text-accent text-decoration-none"><i data-lucide="external-link" size="18"></i> Demo</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100">
-                        <div class="p-4">
-                            <h5 class="card-title">AlgoVisualizer</h5>
-                            <p class="card-text">An interactive tool to visualize sorting and pathfinding algorithms in real-time.</p>
-                            <div class="mt-3">
-                                <span class="badge bg-secondary-subtle text-white-50">JavaScript</span>
-                                <span class="badge bg-secondary-subtle text-white-50">Canvas</span>
-                            </div>
-                            <div class="mt-4">
-                                <a href="#" class="text-accent text-decoration-none me-3"><i data-lucide="github" size="18"></i> Code</a>
-                                <a href="#" class="text-accent text-decoration-none"><i data-lucide="external-link" size="18"></i> Demo</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100">
-                        <div class="p-4">
-                            <h5 class="card-title">EcoMonitor API</h5>
-                            <p class="card-text">A RESTful API designed to track and analyze carbon footprints for small businesses.</p>
-                            <div class="mt-3">
-                                <span class="badge bg-secondary-subtle text-white-50">Python</span>
-                                <span class="badge bg-secondary-subtle text-white-50">PostgreSQL</span>
-                            </div>
-                            <div class="mt-4">
-                                <a href="#" class="text-accent text-decoration-none me-3"><i data-lucide="github" size="18"></i> Code</a>
-                                <a href="#" class="text-accent text-decoration-none"><i data-lucide="external-link" size="18"></i> Demo</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-        /* Education Section */
+        /* ========== TIMELINE EDUCATION STYLES ========== */
         .education-section {
+            padding: 100px 0;
+            background: var(--secondary-bg);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* Vertical line */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--gradient-start), var(--gradient-end), var(--gradient-start));
+            opacity: 0.5;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 3rem;
+            position: relative;
+            width: 100%;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: auto;
+            margin-left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+            margin-right: 0;
+            text-align: left;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: var(--primary-bg);
+            border-radius: 20px;
+            padding: 1.8rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 12px 28px -12px rgba(139, 92, 246, 0.25);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            border: 3px solid var(--secondary-bg);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
+            z-index: 2;
+            transition: 0.2s;
+            top: 28px;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            background: var(--accent-hover);
+            transform: translateX(-50%) scale(1.25);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.15);
+            padding: 0.25rem 1rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 0.75rem;
+            border: 0.5px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-institution {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-top: 0.5rem;
+        }
+
+        .timeline-highlight {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(139, 92, 246, 0.1);
+            padding: 0.25rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            color: #c084fc;
+            margin-top: 0.8rem;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-institution {
+            justify-content: flex-end;
+        }
+
+        /* Projects Section */
+        .projects-section {
             padding: 100px 0;
         }
 
-        .education-card {
+        .project-card {
             background: var(--secondary-bg);
             border-radius: 15px;
-            padding: 2rem;
+            padding: 1.5rem;
             border: 1px solid var(--border-color);
-            margin-bottom: 2rem;
             transition: transform 0.3s ease;
+            height: 100%;
         }
 
-        .education-card:hover {
+        .project-card:hover {
             transform: translateY(-5px);
         }
 
-        .education-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .project-code {
+            background: var(--primary-bg);
+            border-radius: 10px;
+            padding: 1rem;
             margin-bottom: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            overflow-x: auto;
         }
 
         /* Contact Section */
@@ -488,7 +543,6 @@
             margin-right: 1rem;
         }
 
-        /* Footer */
         .footer {
             background: #0a0e1a;
             padding: 2rem 0;
@@ -496,7 +550,6 @@
             border-top: 1px solid var(--border-color);
         }
 
-        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -512,7 +565,6 @@
             animation: fadeInUp 0.6s ease forwards;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .hero-content h1 {
                 font-size: 2.5rem;
@@ -540,6 +592,39 @@
                 bottom: 20px;
                 right: 20px;
             }
+
+            .timeline::before {
+                left: 24px;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-left: 0;
+                margin-bottom: 2rem;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                width: calc(100% - 40px);
+                margin-left: 40px;
+                margin-right: 0;
+                text-align: left;
+            }
+
+            .timeline-dot {
+                left: 24px;
+                transform: translateX(0);
+                top: 20px;
+            }
+
+            .timeline-item:hover .timeline-dot {
+                transform: scale(1.2);
+            }
+
+            .timeline-item:nth-child(odd) .timeline-institution {
+                justify-content: flex-start;
+            }
         }
     </style>
 </head>
@@ -563,9 +648,8 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
     <div class="mobile-menu">
-        <ul>
+        <ul style="list-style: none; padding: 0;">
             <li class="nav-item"><a class="nav-link" href="#about">ABOUT</a></li>
             <li class="nav-item"><a class="nav-link" href="#experience">EXPERIENCE</a></li>
             <li class="nav-item"><a class="nav-link" href="#skills">SKILLS</a></li>
@@ -574,7 +658,6 @@
         </ul>
     </div>
 
-    <!-- Scroll to top button -->
     <div class="scroll-to-top">
         <i class="fas fa-arrow-up"></i>
     </div>
@@ -628,9 +711,7 @@
             <h2 class="section-title">ABOUT ME</h2>
             <div class="row align-items-center">
                 <div class="col-lg-8">
-                    <p class="lead mb-4"> I'm Aayush Adhikari, a 17-year-old student from Jhapa, Nepal, currently studying in grade 11. I'm deeply fascinated by the world of technology—especially new and emerging innovations like artificial intelligence. My journey into tech began with a growing curiosity, and now I'm taking my first steps into programming.
-
- </p>
+                    <p class="lead mb-4">I'm Aayush Adhikari, a 17-year-old student from Jhapa, Nepal, currently studying in grade 11. I'm deeply fascinated by the world of technology—especially new and emerging innovations like artificial intelligence. My journey into tech began with a growing curiosity, and now I'm taking my first steps into programming.</p>
                     
                     <p>My journey in software development started with a curiosity about how things work behind the scenes. Today, I help businesses and individuals bring their ideas to life through clean, efficient, and scalable code. I believe in writing code that not only works but is also maintainable and follows best practices.</p>
                     
@@ -654,10 +735,10 @@
                         <div class="experience-icon">
                             <i class="fas fa-laptop-code text-white"></i>
                         </div>
-                        <h3 class="experience-title">Pending 1</h3>
-                        <div class="experience-company">Pending 1</div>
-                        <div class="experience-duration">Pending 3</div>
-                        <p>Pending 4</p>
+                        <h3 class="experience-title">Open Source Contributor</h3>
+                        <div class="experience-company">GitHub Community</div>
+                        <div class="experience-duration">2024 - Present</div>
+                        <p>Contributing to beginner-friendly repositories, learning collaborative workflows and version control.</p>
                     </div>
                 </div>
                 
@@ -666,34 +747,10 @@
                         <div class="experience-icon">
                             <i class="fas fa-code text-white"></i>
                         </div>
-                        <h3 class="experience-title">Pending 1</h3>
-                        <div class="experience-company">Pending 2</div>
-                        <div class="experience-duration">Pending 3</div>
-                        <p>Pending 4</p>
-                    </div>
-                </div>
-                
-                <div class="col-lg-6">
-                    <div class="experience-card">
-                        <div class="experience-icon">
-                            <i class="fas fa-mobile-alt text-white"></i>
-                        </div>
-                        <h3 class="experience-title">Pending 1</h3>
-                        <div class="experience-company">Pending 2 </div>
-                        <div class="experience-duration"> Pending 3 </div>
-                        <p> Pending 4</p>
-                    </div>
-                </div>
-                
-                <div class="col-lg-6">
-                    <div class="experience-card">
-                        <div class="experience-icon">
-                            <i class="fas fa-graduation-cap text-white"></i>
-                        </div>
-                        <h3 class="experience-title"> Pending 1</h3>
-                        <div class="experience-company"> Pending 2 </div>
-                        <div class="experience-duration"> Pending 3</div>
-                        <p> Pending 4 </p>
+                        <h3 class="experience-title">Freelance Web Developer</h3>
+                        <div class="experience-company">Self-employed</div>
+                        <div class="experience-duration">2024 - Present</div>
+                        <p>Built responsive websites and small web applications for local businesses and personal projects.</p>
                     </div>
                 </div>
             </div>
@@ -744,18 +801,18 @@
                 <div class="col-lg-2 col-md-4 col-6">
                     <div class="skill-item">
                         <div class="skill-icon">
-                            <i class="fab fa-aws"></i>
+                            <i class="fab fa-html5"></i>
                         </div>
-                        <h5>AWS</h5>
+                        <h5>HTML/CSS</h5>
                     </div>
                 </div>
                 
                 <div class="col-lg-2 col-md-4 col-6">
                     <div class="skill-item">
                         <div class="skill-icon">
-                            <i class="fab fa-docker"></i>
+                            <i class="fab fa-git-alt"></i>
                         </div>
-                        <h5>Docker</h5>
+                        <h5>Git</h5>
                     </div>
                 </div>
             </div>
@@ -766,125 +823,143 @@
     <section id="projects" class="projects-section">
         <div class="container">
             <h2 class="section-title">PROJECTS</h2>
-            <div class="row">
-                <div class="col-lg-6 mb-4">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="project-card">
                         <div class="project-code">
-                            <div><span class="code-keyword">const</span> aiChatBot = <span class="code-keyword">new</span> Project({</div>
-                            <div>&nbsp;&nbsp;name: <span class="code-string">'AI-Powered Chat Bot'</span>,</div>
-                            <div>&nbsp;&nbsp;tech: [<span class="code-string">'React'</span>, <span class="code-string">'Node.js'</span>, <span class="code-string">'OpenAI'</span>],</div>
-                            <div>&nbsp;&nbsp;features: [<span class="code-string">'NLP'</span>, <span class="code-string">'Real-time'</span>],</div>
-                            <div>&nbsp;&nbsp;status: <span class="code-string">'Production'</span></div>
-                            <div>});</div>
+                            <span class="code-keyword">const</span> taskManager = { tasks: [], <span class="code-keyword">...</span> }
                         </div>
-                        <h4>AI-Powered Financial Bot</h4>
-                        <p>An intelligent chatbot that helps users with financial queries using natural language processing and machine learning algorithms.</p>
+                        <h4>CloudTask Manager</h4>
+                        <p>A full-stack task management application with real-time updates using WebSockets and React.</p>
+                        <div class="mt-3">
+                            <span class="badge" style="background: rgba(139,92,246,0.2); color:#c084fc;">Node.js</span>
+                            <span class="badge" style="background: rgba(139,92,246,0.2); color:#c084fc;">React</span>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="col-lg-6 mb-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="project-card">
                         <div class="project-code">
-                            <div><span class="code-keyword">class</span> EcommerceApp <span class="code-keyword">extends</span> React.Component {</div>
-                            <div>&nbsp;&nbsp;<span class="code-keyword">constructor</span>() {</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">super</span>();</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.state = {</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cart: [],</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user: <span class="code-keyword">null</span></div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;};</div>
-                            <div>&nbsp;&nbsp;}</div>
-                            <div>}</div>
+                            <span class="code-keyword">function</span> visualizeSort(arr) { <span class="code-comment">// animation</span> }
                         </div>
-                        <h4>E-commerce Platform</h4>
-                        <p>A full-featured e-commerce platform with user authentication, payment processing, and inventory management.</p>
+                        <h4>AlgoVisualizer</h4>
+                        <p>Interactive tool to visualize sorting and pathfinding algorithms in real-time using Canvas.</p>
+                        <div class="mt-3">
+                            <span class="badge" style="background: rgba(139,92,246,0.2); color:#c084fc;">JavaScript</span>
+                            <span class="badge" style="background: rgba(139,92,246,0.2); color:#c084fc;">Canvas</span>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="col-lg-6 mb-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="project-card">
                         <div class="project-code">
-                            <div><span class="code-keyword">import</span> { useState, useEffect } <span class="code-keyword">from</span> <span class="code-string">'react'</span>;</div>
-                            <br>
-                            <div><span class="code-keyword">function</span> WeatherApp() {</div>
-                            <div>&nbsp;&nbsp;<span class="code-keyword">const</span> [weather, setWeather] = useState({});</div>
-                            <div>&nbsp;&nbsp;<span class="code-keyword">const</span> [location, setLocation] = useState(<span class="code-string">''</span>);</div>
-                            <br>
-                            <div>&nbsp;&nbsp;<span class="code-keyword">return</span> &lt;WeatherDashboard /&gt;;</div>
-                            <div>}</div>
+                            <span class="code-keyword">@app.post</span>(<span class="code-string">"/track"</span>)
                         </div>
-                        <h4>Weather Dashboard</h4>
-                        <p>A responsive weather application with real-time data, forecasts, and location-based services.</p>
-                    </div>
-                </div>
-                
-                <div class="col-lg-6 mb-4">
-                    <div class="project-card">
-                        <div class="project-code">
-                            <div><span class="code-keyword">const</span> taskManager = {</div>
-                            <div>&nbsp;&nbsp;tasks: [],</div>
-                            <div>&nbsp;&nbsp;addTask(task) {</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.tasks.push(task);</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;localStorage.setItem(<span class="code-string">'tasks'</span>, JSON.stringify(<span class="code-keyword">this</span>.tasks));</div>
-                            <div>&nbsp;&nbsp;},</div>
-                            <div>&nbsp;&nbsp;getTasks() {</div>
-                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-keyword">this</span>.tasks;</div>
-                            <div>&nbsp;&nbsp;}</div>
-                            <div>};</div>
+                        <h4>EcoMonitor API</h4>
+                        <p>RESTful API designed to track and analyze carbon footprints for small businesses.</p>
+                        <div class="mt-3">
+                            <span class="badge" style="background: rgba(139,92,246,0.2); color:#c084fc;">Python</span>
+                            <span class="badge" style="background: rgba(139,92,246,0.2); color:#c084fc;">PostgreSQL</span>
                         </div>
-                        <h4>Task Management System</h4>
-                        <p>A collaborative task management application with real-time updates, team collaboration, and progress tracking.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
+    <!-- ========== EDUCATION SECTION - TIMELINE FORMAT ========== -->
     <section id="education" class="education-section">
         <div class="container">
-            <h2 class="section-title">EDUCATION</h2>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="education-card">
-                        <div class="education-icon">
-                            <i class="fas fa-certificate text-white"></i>
+            <h2 class="section-title"><i class="fas fa-graduation-cap me-2"></i>EDUCATION TIMELINE</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date"><i class="far fa-calendar-alt me-1"></i> 2025 – Present</span>
+                        <h3 class="timeline-title">Grade 11 (Science + Computer)</h3>
+                        <div class="timeline-institution">
+                            <i class="fas fa-school"></i> Jhapa Model Secondary School, Nepal
                         </div>
-                        <h4>Pending 1</h4>
-                        <div class="text-muted mb-2"> Pending 2</div>
-                        <p> Pending 3 </p>
+                        <p class="timeline-description">
+                            Currently pursuing higher secondary education with major focus on Computer Science, Mathematics, and Physics. 
+                            Deep diving into programming fundamentals, data structures, and web development. Active participant in tech clubs.
+                        </p>
+                        <div class="timeline-highlight">
+                            <i class="fas fa-code"></i> Core: JavaScript, Python, React basics
+                        </div>
                     </div>
                 </div>
                 
-                <div class="col-lg-6">
-                    <div class="education-card">
-                        <div class="education-icon">
-                            <i class="fas fa-award text-white"></i>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date"><i class="far fa-calendar-alt me-1"></i> 2024</span>
+                        <h3 class="timeline-title">Secondary Education (SEE)</h3>
+                        <div class="timeline-institution">
+                            <i class="fas fa-graduation-cap"></i> Shree Adarsha Secondary School, Jhapa
                         </div>
-                        <h4> Pending 1</h4>
-                        <div class="text-muted mb-2"> Pending 2</div>
-                        <p> Pending 3 </p>
+                        <p class="timeline-description">
+                            Completed grade 10 with distinction in Mathematics & Computer Science. Built strong foundation in logical reasoning 
+                            and basic programming concepts. Scored GPA: 3.85.
+                        </p>
+                        <div class="timeline-highlight">
+                            <i class="fas fa-trophy"></i> Distinction in Math & Computer
+                        </div>
                     </div>
                 </div>
                 
-                <div class="col-lg-6">
-                    <div class="education-card">
-                        <div class="education-icon">
-                            <i class="fas fa-medal text-white"></i>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date"><i class="far fa-calendar-alt me-1"></i> 2023 – 2024</span>
+                        <h3 class="timeline-title">Self-Learning Journey</h3>
+                        <div class="timeline-institution">
+                            <i class="fas fa-laptop-code"></i> freeCodeCamp, The Odin Project
                         </div>
-                        <h4> Pending 1</h4>
-                        <div class="text-muted mb-2"> Pending 2</div>
-                        <p> Pending 3</p>
+                        <p class="timeline-description">
+                            Dedicated self-learning path: mastered HTML, CSS, JavaScript fundamentals. Completed responsive web design 
+                            certification, JavaScript algorithms, and built first interactive projects.
+                        </p>
+                        <div class="timeline-highlight">
+                            <i class="fab fa-free-code-camp"></i> 300+ hours of coding
+                        </div>
                     </div>
                 </div>
                 
-                <div class="col-lg-6">
-                    <div class="education-card">
-                        <div class="education-icon">
-                            <i class="fas fa-trophy text-white"></i>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date"><i class="far fa-calendar-alt me-1"></i> 2022</span>
+                        <h3 class="timeline-title">Foundation & Curiosity Phase</h3>
+                        <div class="timeline-institution">
+                            <i class="fas fa-microchip"></i> Basic Computer Literacy
                         </div>
-                        <h4> Pending 1</h4>
-                        <div class="text-muted mb-2"> Pending 2</div>
-                        <p> Pending 3</p>
+                        <p class="timeline-description">
+                            First exposure to technology through school computer labs. Learned digital literacy, typing, logical reasoning. 
+                            Participated in IT quiz competitions and discovered passion for how websites work.
+                        </p>
+                        <div class="timeline-highlight">
+                            <i class="fas fa-lightbulb"></i> First "Hello World" in JavaScript
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date"><i class="far fa-calendar-alt me-1"></i> 2026 – Beyond</span>
+                        <h3 class="timeline-title">Bachelor's in CS (Planned)</h3>
+                        <div class="timeline-institution">
+                            <i class="fas fa-university"></i> Aspiring: IOE / CSIT / BSc.CSIT
+                        </div>
+                        <p class="timeline-description">
+                            Aiming for higher education in Computer Science or Software Engineering. Focus on AI/ML, full-stack development, 
+                            and open-source contributions. Goal to become a professional software engineer.
+                        </p>
+                        <div class="timeline-highlight">
+                            <i class="fas fa-chart-line"></i> Vision: Tech entrepreneur + AI enthusiast
+                        </div>
                     </div>
                 </div>
             </div>
@@ -959,33 +1034,25 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>&copy; 2026 AAYUSH ADK | All rights reserved | Built with passion and precision</p>
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Custom JavaScript -->
     <script>
-        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // Navbar background on scroll
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar-custom');
             if (window.scrollY > 50) {
@@ -995,7 +1062,6 @@
             }
         });
 
-        // Scroll to top button functionality
         const scrollToTopBtn = document.querySelector('.scroll-to-top');
         
         window.addEventListener('scroll', function() {
@@ -1007,13 +1073,9 @@
         });
         
         scrollToTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Mobile menu toggle
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         const mobileMenu = document.querySelector('.mobile-menu');
         
@@ -1021,19 +1083,13 @@
             mobileMenu.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking on a link
         document.querySelectorAll('.mobile-menu .nav-link').forEach(link => {
             link.addEventListener('click', function() {
                 mobileMenu.classList.remove('active');
             });
         });
 
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1042,18 +1098,14 @@
             });
         }, observerOptions);
 
-        // Observe all sections and cards
-        document.querySelectorAll('section, .experience-card, .project-card, .education-card, .skill-item').forEach(el => {
+        document.querySelectorAll('section, .experience-card, .project-card, .timeline-content, .skill-item').forEach(el => {
             observer.observe(el);
         });
 
-        // Add loading animation
         window.addEventListener('load', function() {
             document.body.style.opacity = '0';
             document.body.style.transition = 'opacity 0.5s ease-in-out';
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
+            setTimeout(() => { document.body.style.opacity = '1'; }, 100);
         });
     </script>
 </body>
